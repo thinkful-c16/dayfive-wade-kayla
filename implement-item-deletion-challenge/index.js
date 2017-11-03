@@ -101,20 +101,29 @@ function handleDeleteItemClicked() {
 }
 
 function renameItem() {
-
 }
 
 function handleItemTitleChanged() {
   //listen for when users change the title//
-
-  renderShoppingList();
+  $('.js-shopping-list').on('submit', '#js-rename-item', event => {
+    event.preventDefault();
+    const newItemTitle = $('.js-rename-item-entry').val();
+    $('.js-rename-item-entry').val('');
+    const itemIndex = getItemIndexFromElement(event.currentTarget);
+    console.log(newItemTitle);
+    console.log(itemIndex);    
+    renderShoppingList();
+  });
 }
+
+
 
 function handleShoppingList() {
   renderShoppingList();
   handleNewItemSubmit();
   handleItemCheckClicked();
   handleDeleteItemClicked();
+  handleItemTitleChanged();
 }
   
 $(handleShoppingList);
