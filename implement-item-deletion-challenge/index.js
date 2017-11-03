@@ -100,7 +100,9 @@ function handleDeleteItemClicked() {
   console.log('`handleDeleteItemClicked` ran');
 }
 
-function renameItem() {
+function renameItem(itemIndex, newItemTitle) {
+  console.log( `Item at at index ${itemIndex} was changed.`);
+  STORE[itemIndex]['name'] = newItemTitle;
 }
 
 function handleItemTitleChanged() {
@@ -110,8 +112,7 @@ function handleItemTitleChanged() {
     const newItemTitle = $('.js-rename-item-entry').val();
     $('.js-rename-item-entry').val('');
     const itemIndex = getItemIndexFromElement(event.currentTarget);
-    console.log(newItemTitle);
-    console.log(itemIndex);    
+    renameItem(itemIndex, newItemTitle);  
     renderShoppingList();
   });
 }
