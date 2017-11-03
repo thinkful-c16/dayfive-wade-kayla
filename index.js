@@ -1,4 +1,5 @@
 /* global $ */
+
 'use strict';
 
 function addItems() {
@@ -27,19 +28,24 @@ function checkItems() {
   //unordered list is fixed from the beginning and the toggle is its child//
   $('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
     $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
-  })
+  });
 }
 
-// function deleteItems() {
-//     //code here
-// }
+function deleteItems() {
+  $('.shopping-list').on('click', '.shopping-item-delete', function(event) {
+    $(this).closest('li').remove();
+
+  });
+}
 
 function main() {
-  $(addItems)();
-  $(checkItems)();
-
-
+  $(addItems());
+  $(checkItems());
+  $(deleteItems());
 }
 
-$(addItems());
-$(checkItems());
+$(main);
+
+// $(addItems());
+// $(checkItems());
+// $(deleteItems());
