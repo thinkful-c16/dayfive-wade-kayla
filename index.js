@@ -2,6 +2,24 @@
 
 'use strict';
 
+const STORE = [
+  {name: 'apples', checked: false},
+  {name: 'bananas', checked: true},
+  {name: 'milk', checked: false}
+];
+
+function renderShoppingList() {
+  const shoppingListItems = '<li>Shopping list item here</li>';
+  $('.js-shopping-list').html(shoppingListItems);
+//   console.log(shoppingListItems);
+  
+
+}
+
+function generateShoppingItemsString() {
+
+}
+
 function addItems() {
   //form is already loaded on the DOM//
   $('#js-shopping-list-form').submit(function(event){
@@ -42,6 +60,7 @@ function main() {
   $(addItems());
   $(checkItems());
   $(deleteItems());
+  $(renderShoppingList());
 }
 
 $(main);

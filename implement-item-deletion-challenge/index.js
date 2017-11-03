@@ -18,11 +18,16 @@ function generateItemElement(item, itemIndex, template) {
           <button class="shopping-item-delete js-item-delete">
               <span class="button-label">delete</span>
           </button>
+          <form id='js-rename-item'>
+            <label for="rename-item-entry">Rename item</label>
+            <input type='text' name='rename-item-entry' class='js-rename-item-entry' placeholder='Rename...'>
+            <button type='submit'>Rename item</button>
+          </form>
         </div>
       </li>`;
 }
-  
-  
+
+   
 function generateShoppingItemsString(shoppingList) {
   console.log('Generating shopping list element');
   
@@ -94,7 +99,17 @@ function handleDeleteItemClicked() {
   });
   console.log('`handleDeleteItemClicked` ran');
 }
-  
+
+function renameItem() {
+
+}
+
+function handleItemTitleChanged() {
+  //listen for when users change the title//
+
+  renderShoppingList();
+}
+
 function handleShoppingList() {
   renderShoppingList();
   handleNewItemSubmit();
